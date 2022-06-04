@@ -1,0 +1,20 @@
+{
+  "name": "@aws-webhook-consumer/backend",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "@middy/core": "^3.0.3",
+    "@middy/http-error-handler": "^3.0.3",
+    "@middy/http-json-body-parser": "^3.0.3",
+    "@middy/validator": "^3.0.3",
+    "aws-sdk": "^2.1148.0",
+    "short-uuid": "^4.2.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.98",
+    "@types/node": "^17.0.39",
+    "@types/uuid": "^8.3.4"
+  }
+}
