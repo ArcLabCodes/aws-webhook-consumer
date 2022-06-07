@@ -1,6 +1,9 @@
-import { StackContext, Api, Table } from "@serverless-stack/resources";
+import { StackContext, Api, Table, Topic } from "@serverless-stack/resources";
 
-export function MyStack({ stack }: StackContext) {
+export function WebhookStack({ stack }: StackContext) {
+
+	const webhookTopic = new Topic(stack, "webhooknotifications");
+
 
 	const ddbWebhooklogs = new Table(stack, "webhooklogs", {
 		fields: {
@@ -15,7 +18,8 @@ export function MyStack({ stack }: StackContext) {
 			function: {
 				permissions: [ddbWebhooklogs],
 				environment: {
-					webhooklogsTable: ddbWebhooklogs.tableName
+					webhooklogsTable: ddbWebhooklogs.tableName,
+					webhookTopicArn: webhookTopic.topicArn
 				}
 			}
 		},
@@ -27,8 +31,11 @@ export function MyStack({ stack }: StackContext) {
 		},
 	});
 
+	api.attachPermissions([webhookTopic]);
+
 	stack.addOutputs({
 		ApiEndpoint: api.url,
+		TopicArn: webhookTopic.topicArn
 	});
 
 	return {

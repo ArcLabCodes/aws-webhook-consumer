@@ -1,4 +1,3 @@
-import { DocumentClient } from "aws-sdk/clients/dynamodb";
 
 interface Dictionary {
     [name: string]: string | undefined,
@@ -11,7 +10,7 @@ export interface IWebhookRequestEntity {
     headers: Dictionary,
     pathParams: Dictionary | undefined,
     queryParams: Dictionary | undefined
-    body: string | undefined,
+    body: any | undefined,
 }
 
 export interface INewWebhookRequestEntry {
@@ -19,5 +18,5 @@ export interface INewWebhookRequestEntry {
     headers: Dictionary,
     pathParams: Dictionary | undefined,
     queryParams: Dictionary | undefined
-    body: string | undefined
+    body: any | undefined
 }

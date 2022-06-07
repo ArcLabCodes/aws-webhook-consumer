@@ -8,7 +8,7 @@ const webhookRepo: IWebhookRepo = new WebhookRepo(dynamoDb);
 
 export const handler: APIGatewayProxyHandlerV2 = async (event) => {
 
-    const webhooks = webhookRepo.GetWebhooks();
+    const webhooks = await webhookRepo.GetWebhooks();
 
     return {
         statusCode: 200,

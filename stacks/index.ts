@@ -1,6 +1,5 @@
-import { MyStack } from "./MyStack";
+import { WebhookStack } from "./WebhookStack";
 import { App } from "@serverless-stack/resources";
-import { FrontendStack } from "./FrontendStack";
 
 export default function (app: App) {
   app.setDefaultFunctionProps({
@@ -10,7 +9,5 @@ export default function (app: App) {
       format: "esm",
     },
   });
-
-  app.stack(MyStack);
-  app.stack(FrontendStack);
+  app.stack(WebhookStack);
 }

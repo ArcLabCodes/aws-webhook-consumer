@@ -1,7 +1,5 @@
 
-import { String } from "aws-sdk/clients/appstream";
 import { DocumentClient } from "aws-sdk/clients/dynamodb";
-import { IWebhookEntity } from "functions/models/webhook.entity";
 import { INewWebhookRequestEntry, IWebhookRequestEntity } from "functions/models/webhookRequest.entity";
 import uuid from "short-uuid";
 
